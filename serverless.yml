@@ -19,7 +19,7 @@ service: aws-nodejs # NOTE: update this with your service name
 
 provider:
   name: aws
-  runtime: nodejs6.10
+  runtime: nodejs8.10.0
 
 # you can overwrite defaults here
 #  stage: dev
@@ -45,6 +45,11 @@ provider:
 #  environment:
 #    variable1: value1
 
+custom:
+  webpack:
+    webpackConfig: 'webpack.config.js'   # Name of webpack configuration file
+    includeModules: false   # Node modules configuration for packaging
+    packager: 'npm'   # Packager that will be used to package your external modules
 # you can add packaging information here
 #package:
 #  include:
