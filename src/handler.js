@@ -1,8 +1,8 @@
 'use strict';
 import winston from 'winston';
 
-module.exports.hello = (event, context, callback) => {
-  winston.debug("Executing lambda");
+module.exports.handle = (event, context, callback) => {
+  winston.debug("Executing lambda");npm
   const response = {
     statusCode: 200,
     body: JSON.stringify({
