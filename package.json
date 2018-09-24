@@ -2,15 +2,30 @@
   "name": "serverless-boilerplate",
   "version": "1.0.0",
   "description": "",
-  "main": "handler.js",
+  "main": "src/handler.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "deploy": "export NODE_ENV=dev && npm run deploy:env",
+    "deploy:env": "sls deploy --stage $NODE_ENV",
+    "deploy:production": "export NODE_ENV=production && npm run deploy:env",
+    "start": "serverless offline start",
+    "test": "jest --watch src"
   },
   "author": "Job de Noo",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.1.0",
+    "@babel/preset-env": "^7.1.0",
     "ser": "^0.1.2",
+    "serverless": "^1.32.0",
+    "serverless-offline": "^3.25.14",
     "serverless-webpack": "^5.2.0",
-    "webpack": "^4.19.1"
+    "webpack": "^4.19.1",
+    "webpack-node-externals": "^1.7.2"
+  },
+  "jest": {
+    "collectCoverage": true
+  },
+  "dependencies": {
+    "winston": "^3.1.0"
   }
 }
